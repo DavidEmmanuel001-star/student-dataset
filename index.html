@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Student Dataset</title>
+  <style>
+    body { font-family: sans-serif; margin: 2rem; }
+    table { border-collapse: collapse; }
+    th, td { border: 1px solid #ccc; padding: 6px 10px; }
+    th { background: #eee; }
+  </style>
+</head>
+<body>
+  <h1>Student Dataset</h1>
+  <table id="table"></table>
+
+  <script>
+    // Lists to pick from
+    const departments = ["Computer Science", "Software Engineering",
+                         "Cyber Security", "Information Systems", "Mathematics"];
+    const levels = [100, 200, 300, 400];
+
+    // Helper: pick a random item from a list
+    function pick(list) {
+      return list[Math.floor(Math.random() * list.length)];
+    }
+
+    // Helper: random whole number between min and max
+    function randomInt(min, max) {
+      return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+
+    // Build 50 students
+    const students = [];
+    for (let i = 1; i <= 50; i++) {
+      students.push({
+        studentId: "CU" + (2200 + i),                 // CU2201, CU2202...
+        department: pick(departments),                // random department
+        level: pick(levels),                          // random level
+        attendance: randomInt(40, 100),               // 40 to 100 %
+        avgScore: (35 + Math.random() * 60).toFixed(1) // 35.0 to 95.0
+      });
+    }
+
+    // Show the data in the table
+    const table = document.getElementById("table");
+    table.innerHTML = "<tr><th>Student ID</th><th>Department</th><th>Level</th>" +
+                      "<th>Attendance %</th><th>Average Exam Score</th></tr>";
+
+    for (const s of students) {
+      table.innerHTML += "<tr><td>" + s.studentId + "</td><td>" + s.department +
+        "</td><td>" + s.level + "</td><td>" + s.attendance +
+        "</td><td>" + s.avgScore + "</td></tr>";
+    }
+  </script>
+</body>
+</html>
