@@ -15,34 +15,59 @@
   <table id="table"></table>
 
   <script>
-    // Lists to pick from
-    const departments = ["Computer Science", "Software Engineering",
-                         "Cyber Security", "Information Systems", "Mathematics"];
-    const levels = [100, 200, 300, 400];
+    const students = [
+      { studentId: "CU2201", department: "Computer Science",     level: 300, attendance: 92, avgScore: 78.5 },
+      { studentId: "CU2202", department: "Software Engineering", level: 200, attendance: 85, avgScore: 71.0 },
+      { studentId: "CU2203", department: "Cyber Security",       level: 400, attendance: 64, avgScore: 55.2 },
+      { studentId: "CU2204", department: "Information Systems",  level: 100, attendance: 78, avgScore: 62.8 },
+      { studentId: "CU2205", department: "Mathematics",          level: 300, attendance: 95, avgScore: 88.4 },
+      { studentId: "CU2206", department: "Computer Science",     level: 200, attendance: 58, avgScore: 49.7 },
+      { studentId: "CU2207", department: "Software Engineering", level: 400, attendance: 90, avgScore: 81.3 },
+      { studentId: "CU2208", department: "Cyber Security",       level: 100, attendance: 73, avgScore: 66.0 },
+      { studentId: "CU2209", department: "Information Systems",  level: 300, attendance: 88, avgScore: 74.9 },
+      { studentId: "CU2210", department: "Mathematics",          level: 200, attendance: 69, avgScore: 58.6 },
+      { studentId: "CU2211", department: "Computer Science",     level: 400, attendance: 97, avgScore: 91.2 },
+      { studentId: "CU2212", department: "Software Engineering", level: 100, attendance: 52, avgScore: 45.1 },
+      { studentId: "CU2213", department: "Cyber Security",       level: 300, attendance: 81, avgScore: 72.4 },
+      { studentId: "CU2214", department: "Information Systems",  level: 200, attendance: 76, avgScore: 68.3 },
+      { studentId: "CU2215", department: "Mathematics",          level: 400, attendance: 89, avgScore: 83.7 },
+      { studentId: "CU2216", department: "Computer Science",     level: 100, attendance: 84, avgScore: 72.9 },
+      { studentId: "CU2217", department: "Software Engineering", level: 300, attendance: 67, avgScore: 59.4 },
+      { studentId: "CU2218", department: "Cyber Security",       level: 200, attendance: 93, avgScore: 85.6 },
+      { studentId: "CU2219", department: "Information Systems",  level: 400, attendance: 71, avgScore: 63.5 },
+      { studentId: "CU2220", department: "Mathematics",          level: 100, attendance: 60, avgScore: 52.3 },
+      { studentId: "CU2221", department: "Computer Science",     level: 300, attendance: 79, avgScore: 69.8 },
+      { studentId: "CU2222", department: "Software Engineering", level: 200, attendance: 96, avgScore: 89.1 },
+      { studentId: "CU2223", department: "Cyber Security",       level: 400, attendance: 55, avgScore: 47.8 },
+      { studentId: "CU2224", department: "Information Systems",  level: 100, attendance: 87, avgScore: 76.2 },
+      { studentId: "CU2225", department: "Mathematics",          level: 300, attendance: 74, avgScore: 64.7 },
+      { studentId: "CU2226", department: "Computer Science",     level: 200, attendance: 91, avgScore: 82.0 },
+      { studentId: "CU2227", department: "Software Engineering", level: 400, attendance: 62, avgScore: 54.9 },
+      { studentId: "CU2228", department: "Cyber Security",       level: 100, attendance: 83, avgScore: 73.5 },
+      { studentId: "CU2229", department: "Information Systems",  level: 300, attendance: 98, avgScore: 92.4 },
+      { studentId: "CU2230", department: "Mathematics",          level: 200, attendance: 66, avgScore: 57.2 },
+      { studentId: "CU2231", department: "Computer Science",     level: 400, attendance: 77, avgScore: 67.1 },
+      { studentId: "CU2232", department: "Software Engineering", level: 100, attendance: 88, avgScore: 79.6 },
+      { studentId: "CU2233", department: "Cyber Security",       level: 300, attendance: 50, avgScore: 43.9 },
+      { studentId: "CU2234", department: "Information Systems",  level: 200, attendance: 82, avgScore: 70.4 },
+      { studentId: "CU2235", department: "Mathematics",          level: 400, attendance: 94, avgScore: 86.8 },
+      { studentId: "CU2236", department: "Computer Science",     level: 100, attendance: 70, avgScore: 61.3 },
+      { studentId: "CU2237", department: "Software Engineering", level: 300, attendance: 86, avgScore: 77.7 },
+      { studentId: "CU2238", department: "Cyber Security",       level: 200, attendance: 75, avgScore: 65.9 },
+      { studentId: "CU2239", department: "Information Systems",  level: 400, attendance: 92, avgScore: 84.2 },
+      { studentId: "CU2240", department: "Mathematics",          level: 100, attendance: 57, avgScore: 50.6 },
+      { studentId: "CU2241", department: "Computer Science",     level: 300, attendance: 89, avgScore: 80.5 },
+      { studentId: "CU2242", department: "Software Engineering", level: 200, attendance: 68, avgScore: 60.1 },
+      { studentId: "CU2243", department: "Cyber Security",       level: 400, attendance: 99, avgScore: 93.7 },
+      { studentId: "CU2244", department: "Information Systems",  level: 100, attendance: 72, avgScore: 63.0 },
+      { studentId: "CU2245", department: "Mathematics",          level: 300, attendance: 80, avgScore: 71.8 },
+      { studentId: "CU2246", department: "Computer Science",     level: 200, attendance: 63, avgScore: 55.6 },
+      { studentId: "CU2247", department: "Software Engineering", level: 400, attendance: 85, avgScore: 75.3 },
+      { studentId: "CU2248", department: "Cyber Security",       level: 100, attendance: 90, avgScore: 81.9 },
+      { studentId: "CU2249", department: "Information Systems",  level: 300, attendance: 59, avgScore: 51.4 },
+      { studentId: "CU2250", department: "Mathematics",          level: 400, attendance: 87, avgScore: 78.9 }
+    ];
 
-    // Helper: pick a random item from a list
-    function pick(list) {
-      return list[Math.floor(Math.random() * list.length)];
-    }
-
-    // Helper: random whole number between min and max
-    function randomInt(min, max) {
-      return Math.floor(Math.random() * (max - min + 1)) + min;
-    }
-
-    // Build 50 students
-    const students = [];
-    for (let i = 1; i <= 50; i++) {
-      students.push({
-        studentId: "CU" + (2200 + i),                 // CU2201, CU2202...
-        department: pick(departments),                // random department
-        level: pick(levels),                          // random level
-        attendance: randomInt(40, 100),               // 40 to 100 %
-        avgScore: (35 + Math.random() * 60).toFixed(1) // 35.0 to 95.0
-      });
-    }
-
-    // Show the data in the table
     const table = document.getElementById("table");
     table.innerHTML = "<tr><th>Student ID</th><th>Department</th><th>Level</th>" +
                       "<th>Attendance %</th><th>Average Exam Score</th></tr>";
@@ -50,7 +75,7 @@
     for (const s of students) {
       table.innerHTML += "<tr><td>" + s.studentId + "</td><td>" + s.department +
         "</td><td>" + s.level + "</td><td>" + s.attendance +
-        "</td><td>" + s.avgScore + "</td></tr>";
+        "</td><td>" + s.avgScore.toFixed(1) + "</td></tr>";
     }
   </script>
 </body>
